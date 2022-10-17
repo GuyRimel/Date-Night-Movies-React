@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import MainView   from './components/main-view/main-view';
 
 // import indicating './index.scss' needs bundling
 import './index.scss';
@@ -8,9 +9,7 @@ import './index.scss';
 class DNMApplication extends React.Component {
   render() {
     return (
-      <div className="dnmovies">
-        <div>Good Morning</div>
-      </div>
+      <MainView />
     );
   }
 }
