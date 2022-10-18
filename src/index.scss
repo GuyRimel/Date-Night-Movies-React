@@ -1,5 +1,10 @@
-$color: steelblue;
+$color: red;
+$color-10Dkr: darken($color, 10%);
 
 .main-view {
   color: $color;
+}
+
+.movie-card {
+  color: $color-10Dkr;
 }

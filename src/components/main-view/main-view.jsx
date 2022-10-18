@@ -1,7 +1,8 @@
-import React      from 'react';
-import MovieCard  from '../movie-card/movie-card';
+import React          from 'react';
+import { MovieCard }  from '../movie-card/movie-card';
+import { MovieView }  from '../movie-view/movie-view';
 
-class MainView extends React.Component {
+export class MainView extends React.Component {
   
   constructor() {
     // 'super()' initializes this component's state
@@ -21,12 +22,21 @@ class MainView extends React.Component {
           Description: 'this is the description',
           ImagePath: 'here/there/everywhere.jpg'
         }
-      ]
-    }
+      ],
+      selectedMovie: null
+    };
+  }
+
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({
+      selectedMovie: newSelectedMovie
+    });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, selectedMovie } = this.state;
+
+    if(selectedMovie) return <MovieView movie={selectedMovie} />;
 
     if(movies.length === 0) {
       return <div className="main-view">Empty list! oh nooo!</div>;
@@ -34,10 +44,24 @@ class MainView extends React.Component {
 
     return (
       <div className="main-view">
-        {movies.map(movie => <MovieCard key={movie._id} movieData={movie}/>)}
+        {selectedMovie // true or false for the ternary
+          ? <MovieView
+            movie={selectedMovie}
+            onBackClick={newSelectedMovie => {
+              this.setSelectedMovie(newSelectedMovie);
+            }}
+          />
+          : movies.map((movie) => {
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(movie) => {
+                this.setSelectedMovie(movie);
+              }}
+            />
+          })
+        }
       </div>
     );
   } // end of 'render()' func
-} // end of 'MainView' class
-
-export default MainView;
+} // end of 'MainView' component
