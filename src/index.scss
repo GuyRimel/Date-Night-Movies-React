@@ -1,10 +1,20 @@
 $color: red;
 $color-10Dkr: darken($color, 10%);
 
+body {
+  background-color: beige;
+}
+
 .main-view {
+  background-color: lightblue;
   color: $color;
 }
 
 .movie-card {
+  background-color: lightgreen;
   color: $color-10Dkr;
+}
+
+.movie-view {
+  background-color: lightgoldenrodyellow;
 }

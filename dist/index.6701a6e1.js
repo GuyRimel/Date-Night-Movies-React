@@ -140,7 +140,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"bKO3X":[function(require,module,exports) {
+})({"bWsjv":[function(require,module,exports) {
 var Refresh = require('react-refresh/runtime');
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {
@@ -151,11 +151,11 @@ window.$RefreshSig$ = function() {
     };
 };
 
-},{"react-refresh/runtime":"eawDV"}],"eawDV":[function(require,module,exports) {
+},{"react-refresh/runtime":"3DA89"}],"3DA89":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-refresh-runtime.development.js');
 
-},{"./cjs/react-refresh-runtime.development.js":"3HvHW"}],"3HvHW":[function(require,module,exports) {
+},{"./cjs/react-refresh-runtime.development.js":"j9oqj"}],"j9oqj":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -618,7 +618,7 @@ module.exports = require('./cjs/react-refresh-runtime.development.js');
     exports.setSignature = setSignature;
 })();
 
-},{}],"4Vj0L":[function(require,module,exports) {
+},{}],"4U9b0":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
@@ -945,6 +945,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
+var _client = require("react-dom/client");
 var _mainView = require("./components/main-view/main-view");
 // import indicating './index.scss' needs bundling
 var _indexScss = require("./index.scss");
@@ -962,15 +963,17 @@ class DNMApplication extends _reactDefault.default.Component {
 }
 // 'container' is the root DOM element
 const container = document.getElementsByClassName('app-container')[0];
+const root = _client.createRoot(container);
 // this tells React to render the app in the root DOM element
-_reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElement(DNMApplication), container);
+// ReactDOM.render(React.createElement(DNMApplication), container);
+root.render(/*#__PURE__*/ _reactDefault.default.createElement(DNMApplication));
 
   $parcel$ReactRefreshHelpers$b058.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"nK7fg","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"62uRk"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"6idl3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3sqey","react-dom/client":"jdzvJ"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -25323,17 +25326,22 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __self: this
             }) : movies.map((movie)=>{
-                /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
-                    onMovieClick: (movie1)=>{
-                        this.setSelectedMovie(movie1);
-                    },
+                // <MovieCard
+                //   key={movie._id}
+                //   movie={movie}
+                //   onMovieClick={(movie) => {
+                //     this.setSelectedMovie(movie);
+                //   }}
+                // />
+                /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 55
+                        lineNumber: 62
                     },
-                    __self: this
-                }, movie._id);
+                    __self: this,
+                    children: "this is text"
+                }) // debugging purposes... this is not displaying
+                ;
             })
         }));
     }
@@ -25344,7 +25352,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","@parcel/transformer-js/src/esmodule-helpers.js":"nK7fg","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"62uRk","../movie-view/movie-view":"ikZdr"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"6idl3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3sqey"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25382,7 +25390,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"nK7fg","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"62uRk"}],"nK7fg":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"6idl3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3sqey"}],"6idl3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -25414,7 +25422,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"62uRk":[function(require,module,exports) {
+},{}],"3sqey":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -25534,7 +25542,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"eawDV"}],"ikZdr":[function(require,module,exports) {
+},{"react-refresh/runtime":"3DA89"}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25645,6 +25653,27 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"nK7fg","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"62uRk"}],"jUTZ8":[function() {},{}]},["bKO3X","4Vj0L","dLPEP"], "dLPEP", "parcelRequireed44")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"6idl3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3sqey"}],"jUTZ8":[function() {},{}],"jdzvJ":[function(require,module,exports) {
+'use strict';
+var m = require('react-dom');
+var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+exports.createRoot = function(c, o) {
+    i.usingClientEntryPoint = true;
+    try {
+        return m.createRoot(c, o);
+    } finally{
+        i.usingClientEntryPoint = false;
+    }
+};
+exports.hydrateRoot = function(c, h, o) {
+    i.usingClientEntryPoint = true;
+    try {
+        return m.hydrateRoot(c, h, o);
+    } finally{
+        i.usingClientEntryPoint = false;
+    }
+};
+
+},{"react-dom":"gkWJK"}]},["bWsjv","4U9b0","dLPEP"], "dLPEP", "parcelRequireed44")
 
 //# sourceMappingURL=index.6701a6e1.js.map

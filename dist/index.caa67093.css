@@ -1,8 +1,18 @@
+body {
+  background-color: beige;
+}
+
 .main-view {
+  background-color: lightblue;
   color: red;
 }
 
 .movie-card {
+  background-color: lightgreen;
   color: #cc0000;
+}
+
+.movie-view {
+  background-color: lightgoldenrodyellow;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

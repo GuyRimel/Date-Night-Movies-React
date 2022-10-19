@@ -52,13 +52,14 @@ export class MainView extends React.Component {
             }}
           />
           : movies.map((movie) => {
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(movie) => {
-                this.setSelectedMovie(movie);
-              }}
-            />
+            // <MovieCard
+            //   key={movie._id}
+            //   movie={movie}
+            //   onMovieClick={(movie) => {
+            //     this.setSelectedMovie(movie);
+            //   }}
+            // />
+            <div>this is text</div> // debugging purposes... this is not displaying
           })
         }
       </div>
