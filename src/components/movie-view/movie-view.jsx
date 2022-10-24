@@ -1,13 +1,14 @@
 import React from 'react';
 
-export class MovieView extends React.Component {
-
+export default class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
-        <img src={movie.ImagePath} />
+        <div className="movie-poster">
+          <img src={movie.ImagePath} />
+        </div>
         <div className="movie-title">
           <span className="label">Title: </span>
           <span className="value">{movie.Title}</span>
@@ -25,5 +26,5 @@ export class MovieView extends React.Component {
         </button>
       </div>
     );
-  } // end of 'render()' func
-} // end of 'MovieView' declaration
+  }
+}

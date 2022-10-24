@@ -1,9 +1,8 @@
-import React          from 'react';
-import { MovieCard }  from '../movie-card/movie-card';
-import { MovieView }  from '../movie-view/movie-view';
+import React        from 'react';
+import MovieCard    from '../movie-card/movie-card';
+import MovieView    from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
-  
   constructor() {
     // 'super()' initializes this component's state
     // it binds the 'this' keyword to 'React.Component'
@@ -35,33 +34,31 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie } = this.state;
-
-    if(selectedMovie) return <MovieView movie={selectedMovie} />;
-
+    
     if(movies.length === 0) {
       return <div className="main-view">Empty list! oh nooo!</div>;
     }
 
     return (
       <div className="main-view">
-        {selectedMovie // true or false for the ternary
-          ? <MovieView
+        {selectedMovie ? ( // true or false for the ternary
+          <MovieView
             movie={selectedMovie}
             onBackClick={newSelectedMovie => {
               this.setSelectedMovie(newSelectedMovie);
             }}
           />
-          : movies.map((movie) => {
-            // <MovieCard
-            //   key={movie._id}
-            //   movie={movie}
-            //   onMovieClick={(movie) => {
-            //     this.setSelectedMovie(movie);
-            //   }}
-            // />
-            <div>this is text</div> // debugging purposes... this is not displaying
-          })
-        }
+        ) : (
+          movies.map((movie) => (
+          <MovieCard
+            key={movie._id}
+            movie={movie}
+            onMovieClick={(movie) => {
+              this.setSelectedMovie(movie);
+            }}
+          />
+          ))
+        )}
       </div>
     );
   } // end of 'render()' func
