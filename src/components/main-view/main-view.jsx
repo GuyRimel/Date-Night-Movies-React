@@ -21,7 +21,7 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://datenightmovies.herokuapp.com/movies')
+    axios.get('https://datenightmovies.herokuapp.com/movies') // axios requesting hosted API
       .then(response => {
         this.setState({
           movies: response.data

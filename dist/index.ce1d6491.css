@@ -1,4 +1,4 @@
-body {
+:root {
   background-color: beige;
 }
 
@@ -7,7 +7,10 @@ body {
 }
 
 .movie-card {
+  cursor: pointer;
   background-color: #90ee90;
+  margin: 1em;
+  padding: 1em;
 }
 
 .movie-view {

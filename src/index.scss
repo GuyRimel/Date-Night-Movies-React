@@ -1,7 +1,7 @@
 $color: red;
 $color-10Dkr: darken($color, 10%);
 
-body {
+:root {
   background-color: beige;
 }
 
@@ -11,6 +11,9 @@ body {
 
 .movie-card {
   background-color: lightgreen;
+  cursor: pointer;
+  margin: 1em;
+  padding: 1em;
 }
 
 .movie-view {
