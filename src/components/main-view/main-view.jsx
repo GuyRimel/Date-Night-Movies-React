@@ -9,20 +9,7 @@ export class MainView extends React.Component {
     // it binds the 'this' keyword to 'React.Component'
     super();
     this.state = {
-      movies: [
-        {
-          _id: 1,
-          Title: 'random movie title',
-          Description: 'this is the description',
-          ImagePath: 'here/there/everywhere.jpg'
-        },
-        {
-          _id: 2,
-          Title: 'randomer movie title',
-          Description: 'this is the description',
-          ImagePath: 'here/there/everywhere.jpg'
-        }
-      ],
+      movies: [],
       selectedMovie: null
     };
   }
@@ -31,6 +18,18 @@ export class MainView extends React.Component {
     this.setState({
       selectedMovie: newSelectedMovie
     });
+  }
+
+  componentDidMount() {
+    axios.get('https://date-night-movies.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -50,7 +49,7 @@ export class MainView extends React.Component {
             }}
           />
         ) : (
-          movies.map((movie) => (
+          movies.map(movie => (
           <MovieCard
             key={movie._id}
             movie={movie}
