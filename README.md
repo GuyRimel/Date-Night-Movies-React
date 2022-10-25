@@ -3,7 +3,7 @@ Description:
 This is the client side for the "Date Night Movies" web app
 
 Techstack (client side):
-React
+React,
 HTML, CSS, JS
 SCSS, JSX transpiled by Parcel
 
