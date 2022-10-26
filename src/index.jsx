@@ -3,7 +3,7 @@ import ReactDOM     from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { MainView } from './components/main-view/main-view';
 
-// import indicating './index.scss' needs bundling
+// import indicating './index.scss' needs bundling (Parcel)
 import './index.scss';
 
 // main React component
