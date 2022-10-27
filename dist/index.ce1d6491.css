@@ -14,7 +14,24 @@
 }
 
 .movie-view {
-  background-color: #ffb6c1;
+  background-color: #ffa07a;
+}
+
+.login-view {
+  background-color: red;
+  display: grid;
+}
+
+form {
+  background-color: #ccc;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.35em;
+  display: flex;
+}
+
+form label {
+  padding: .35em;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
