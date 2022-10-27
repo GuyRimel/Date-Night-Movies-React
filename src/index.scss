@@ -5,27 +5,6 @@ $color-10Dkr: darken($color, 10%);
   background-color: beige;
 }
 
-.main-view {
-  background-color: lightblue;
-}
-
-.movie-card {
-  background-color: lightgreen;
-  cursor: pointer;
-  margin: 1em;
-  padding: 1em;
-}
-
-.movie-view {
-  background-color: lightsalmon;
-}
-
-.login-view {
-  background-color: red;
-  display: grid;
-  
-}
-
 form {
   background-color: #ccc;
   display: flex;

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import './login-view.scss';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
+  const [ isRegistered, setRegistrationTo ] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,8 +14,14 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const triggerRegistration = (e) => {
+    console.log('registration clicked');
+    props.triggerRegistration();
+  }
+
   return (
     <div className="login-view">
+      <h1>Login</h1>
       <form>
         <label>
           Username: 
@@ -33,6 +41,9 @@ export function LoginView(props) {
         </label>
         <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>
+      <div>Or, if you don't have an account, register 
+        <a onClick={triggerRegistration}> HERE</a>
+      </div>
     </div>
   );
 }

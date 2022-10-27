@@ -2,26 +2,6 @@
   background-color: beige;
 }
 
-.main-view {
-  background-color: #add8e6;
-}
-
-.movie-card {
-  cursor: pointer;
-  background-color: #90ee90;
-  margin: 1em;
-  padding: 1em;
-}
-
-.movie-view {
-  background-color: #ffa07a;
-}
-
-.login-view {
-  background-color: red;
-  display: grid;
-}
-
 form {
   background-color: #ccc;
   flex-direction: column;
