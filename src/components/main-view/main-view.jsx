@@ -68,6 +68,7 @@ export class MainView extends React.Component {
 
     return (
       <div className="main-view">
+        <h1>Date Night Movies!</h1>
         {selectedMovie ? (
           <MovieView
             movie={selectedMovie}

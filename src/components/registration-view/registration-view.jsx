@@ -19,7 +19,8 @@ export function RegistrationView(props) {
 
   return (
     <div className="register-view">
-      <h1>Register</h1>
+      <h1>Date Night Movies!</h1>
+      <h2>Register</h2>
       <form>
         <label>Username: </label>
         <input

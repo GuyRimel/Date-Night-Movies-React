@@ -21,8 +21,9 @@ export function LoginView(props) {
 
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
+    <div className="login-view">
+      <h1>Date Night Movies!</h1>
+      <h2>Login</h2>
       <form>
         <label>Username: </label>
         <input
