@@ -1,49 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState }  from 'react';
+import PropTypes            from 'prop-types';
 import './login-view.scss';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ isRegistered, setRegistrationTo ] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('(username: ' + username + ') (password: ' + password + ')');
-    // send a request to the server for authentication
+    console.log(username, password);
+    // Send a request to the server for authentication
     // then call props.onLoggedIn(username)
     props.onLoggedIn(username);
   };
 
-  const triggerRegistration = (e) => {
-    console.log('registration clicked');
-    props.triggerRegistration();
-  }
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    props.toRegister();
+  };
+
 
   return (
-    <div className="login-view">
+    <div className="login-container">
       <h1>Login</h1>
       <form>
-        <label>
-          Username: 
-          <input
-            type="text"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Password: 
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit" onClick={handleSubmit}>Submit</button>
+        <label>Username: </label>
+        <input
+          type="text"
+          onChange={e => setUsername(e.target.value)}
+        />
+        <label>Password: </label>
+        <input
+          type="password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Login
+        </button>
+        <button
+          type="submit"
+          onClick={handleRegisterClick}
+        >
+          Register
+        </button>
       </form>
-      <div>Or, if you don't have an account, register 
-        <a onClick={triggerRegistration}> HERE</a>
-      </div>
     </div>
   );
 }
+
+LoginView.propTypes = {
+  onLoggedIn: PropTypes.func.isRequired,
+  toRegister: PropTypes.func.isRequired,
+};

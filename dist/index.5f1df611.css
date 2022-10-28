@@ -1,18 +1,9 @@
-.movie-card {
-  cursor: pointer;
-  background-color: #90ee90;
-  margin: 1em;
-  padding: 1em;
+.movie-view {
+  background-color: #ffa07a;
 }
 
 .login-view {
   display: grid;
-}
-
-
-
-.main-view {
-  background-color: #add8e6;
 }
 
 :root {
@@ -35,4 +26,4 @@ a {
   cursor: pointer;
 }
 
-/*# sourceMappingURL=index.e3f97e84.css.map */
+/*# sourceMappingURL=index.5f1df611.css.map */
