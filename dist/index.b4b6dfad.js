@@ -32607,7 +32607,7 @@ function RegistrationView(props) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        children: "Username:"
+                        children: "Username: "
                     }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
                         lineNumber: 24,
@@ -32623,7 +32623,7 @@ function RegistrationView(props) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                        children: "Password:"
+                        children: "Password: "
                     }, void 0, false, {
                         fileName: "src/components/registration-view/registration-view.jsx",
                         lineNumber: 30,

@@ -21,13 +21,13 @@ export function RegistrationView(props) {
     <div className="register-view">
       <h1>Register</h1>
       <form>
-        <label>Username:</label>
+        <label>Username: </label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Password:</label>
+        <label>Password: </label>
         <input
           type="text"
           value={password}
