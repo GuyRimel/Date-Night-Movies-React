@@ -12,11 +12,13 @@ export function LoginView(props) {
     // Send a request to the server for authentication
     // then call props.onLoggedIn(username)
     props.onLoggedIn(username);
+    console.log('clicked Login');
   };
 
   const handleRegisterClick = (e) => {
     e.preventDefault();
-    props.toRegister();
+    props.toggleRegister(false);
+    console.log('clicked Register');
   };
 
 
@@ -54,5 +56,5 @@ export function LoginView(props) {
 
 LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired,
-  toRegister: PropTypes.func.isRequired,
+  toggleRegister: PropTypes.func.isRequired,
 };

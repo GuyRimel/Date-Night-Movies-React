@@ -10,11 +10,13 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
+    console.log('clicked Register' + username, password, email, birthday);
   };
 
-  const backToLogin = () => {
+  const toLogin = () => {
     props.onLoggedIn(null);
+    props.toggleRegister(true);
+    console.log('clicked Back to Login');
   }
 
   return (
@@ -54,7 +56,7 @@ export function RegistrationView(props) {
         </button>
         <button
           type="button"
-          onClick={backToLogin}
+          onClick={toLogin}
         >
           Back to Login
         </button>

@@ -42,24 +42,29 @@ export class MainView extends React.Component {
     this.setState({user});
   }
 
-  toRegister(registered) {
+  toggleRegister(registered) {
     this.setState({registered});
   }
 
   render() {
     const { movies, selectedMovie, user, registered } = this.state;
 
-    if (!registered) return <RegistrationView />;
-
     // if there is no user, the LoginView is rendered.  If there is a user
     // logged in, the user details are passed as a prop to the LoginView
-    if (!user)
-      return (
-        <LoginView
-          onLoggedIn={(user) => this.onLoggedIn(user)}
-          toRegister={(registered) => this.toRegister(registered)}
-        />
-      );
+
+    if (!registered) return (
+      <RegistrationView
+        onLoggedIn={(user) => this.onLoggedIn(user)}
+        toggleRegister={(registered) => this.toggleRegister(registered)}
+      />
+    );
+    
+    if (!user) return (
+      <LoginView
+        onLoggedIn={(user) => this.onLoggedIn(user)}
+        toggleRegister={(registered) => this.toggleRegister(registered)}
+      />
+    );
 
     // before the movies have been loaded
     if (movies.length === 0) return (
