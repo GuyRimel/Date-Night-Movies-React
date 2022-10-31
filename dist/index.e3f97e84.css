@@ -16,13 +16,13 @@ form {
 
 h1 {
   background-color: #64dd17;
-  padding: .75em;
 }
 
 h2 {
-  color: #fff;
   background-color: #306a0b;
-  padding: .5em;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  box-shadow: 0 8px 8px 4px #888;
 }
 
 a {

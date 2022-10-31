@@ -1,16 +1,20 @@
-import React          from 'react';
-import ReactDOM       from 'react-dom';
-import Container      from 'react-bootstrap/Container';
-import { createRoot } from 'react-dom/client';
-import { MainView }   from './components/main-view/main-view';
-import './index.scss';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { MainView } from "./components/main-view/main-view";
+
+import { Container, Row } from "react-bootstrap";
+import "./index.scss";
 
 // main React component
 class DNMApplication extends React.Component {
   render() {
     return (
       <Container fluid>
-        <h1>Date Night Movies!</h1>
+        <Row>
+          <h1 className="text-dark text-center p-3 m-0 w-100">
+            Date Night Movies!
+          </h1>
+        </Row>
         <MainView />
       </Container>
     );
@@ -18,7 +22,7 @@ class DNMApplication extends React.Component {
 }
 
 // 'container' is the root DOM element
-const container = document.getElementsByClassName('app-container')[0];
+const container = document.getElementsByClassName("app-container")[0];
 const root = createRoot(container);
 
 // this tells React to render the app in the root DOM element

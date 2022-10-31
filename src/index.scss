@@ -2,13 +2,21 @@ $color-h1: #64dd17;
 
 h1 {
   background-color: $color-h1;
-  padding: 0.75em;
 }
 
 h2 {
   background-color: darken($color-h1, 25%);
-  color: white;
-  padding: 0.5em;
+  box-shadow: 0 8px 8px 4px #888;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 a { cursor: pointer; }
+
+img {
+  background-color: #cdcdcd;
+}
+
+button {
+  margin: 0.5em;
+}

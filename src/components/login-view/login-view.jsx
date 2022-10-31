@@ -1,6 +1,7 @@
 import React, { useState }        from 'react';
 import PropTypes                  from 'prop-types';
-import { Card, Row, Col, Form, Button } from 'react-bootstrap';
+
+import { Row, Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -24,20 +25,24 @@ export function LoginView(props) {
 
   return (
     <div className='login-view'>
-      <h2 className='text-light'>Please Login</h2>
-      <Row className="justify-content-center">
+      <Row className='justify-content-center'>
+        <h2 className='text-light text-center p-3 w-100'>Please Login</h2>
+      </Row>
+      <Row className='justify-content-center m-2'>
         <Form>
           <Form.Group>
             <Form.Label>Username: </Form.Label>
             <Form.Control
-              type="text"
+              className='mb-3'
+              type='text'
               onChange={e => setUsername(e.target.value)}
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Password: </Form.Label>
             <Form.Control
-              type="password"
+              className='mb-3'
+              type='password'
               onChange={e => setPassword(e.target.value)}
             />
           </Form.Group>
@@ -50,15 +55,14 @@ export function LoginView(props) {
           </Button>
         </Form>      
       </Row>
-      <Row className='justify-content-center'>
+      <Row className='justify-content-center m-1'>
         <a
           className='text-muted'
-          type="submit"
+          type='submit'
           onClick={handleRegisterClick}
         >
-          or, click here to register a new account.
+          Click here to register a new account.
         </a>
-
       </Row>
     </div>
   );
