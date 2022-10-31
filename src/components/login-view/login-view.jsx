@@ -1,5 +1,6 @@
-import React, { useState }  from 'react';
-import PropTypes            from 'prop-types';
+import React, { useState }        from 'react';
+import PropTypes                  from 'prop-types';
+import { Card, Row, Col, Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 
 export function LoginView(props) {
@@ -8,48 +9,57 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
+    console.log('clicked Login' + username, password);
     // Send a request to the server for authentication
     // then call props.onLoggedIn(username)
     props.onLoggedIn(username);
-    console.log('clicked Login');
   };
 
   const handleRegisterClick = (e) => {
     e.preventDefault();
-    props.toggleRegister(false);
     console.log('clicked Register');
+    props.toggleRegister(false);
   };
 
 
   return (
-    <div className="login-view">
-      <h1>Date Night Movies!</h1>
-      <h2>Login</h2>
-      <form>
-        <label>Username: </label>
-        <input
-          type="text"
-          onChange={e => setUsername(e.target.value)}
-        />
-        <label>Password: </label>
-        <input
-          type="password"
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Login
-        </button>
-        <button
+    <div className='login-view'>
+      <h2 className='text-light'>Please Login</h2>
+      <Row className="justify-content-center">
+        <Form>
+          <Form.Group>
+            <Form.Label>Username: </Form.Label>
+            <Form.Control
+              type="text"
+              onChange={e => setUsername(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Password: </Form.Label>
+            <Form.Control
+              type="password"
+              onChange={e => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button
+            variant='warning'
+            type='submit'
+            onClick={handleSubmit}
+          >
+            Login
+          </Button>
+        </Form>      
+      </Row>
+      <Row className='justify-content-center'>
+        <a
+          className='text-muted'
           type="submit"
           onClick={handleRegisterClick}
         >
-          Register
-        </button>
-      </form>
+          or, click here to register a new account.
+        </a>
+
+      </Row>
     </div>
   );
 }

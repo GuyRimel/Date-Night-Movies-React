@@ -1,5 +1,6 @@
 import React          from 'react';
 import ReactDOM       from 'react-dom';
+import Container      from 'react-bootstrap/Container';
 import { createRoot } from 'react-dom/client';
 import { MainView }   from './components/main-view/main-view';
 import './index.scss';
@@ -7,7 +8,12 @@ import './index.scss';
 // main React component
 class DNMApplication extends React.Component {
   render() {
-    return <MainView />
+    return (
+      <Container fluid>
+        <h1>Date Night Movies!</h1>
+        <MainView />
+      </Container>
+    );
   }
 }
 

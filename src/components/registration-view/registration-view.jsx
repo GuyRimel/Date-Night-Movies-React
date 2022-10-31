@@ -21,8 +21,6 @@ export function RegistrationView(props) {
 
   return (
     <div className="register-view">
-      <h1>Date Night Movies!</h1>
-      <h2>Register</h2>
       <form>
         <label>Username: </label>
         <input
@@ -54,15 +52,18 @@ export function RegistrationView(props) {
         >
           Register
         </button>
-        <button
+        <a
           type="button"
           onClick={toLogin}
         >
-          Back to Login
-        </button>
+          Click here to login with an existing account.
+        </a>
       </form>
     </div>
   );
 }
 
-RegistrationView.propTypes = {};
+RegistrationView.propTypes = {
+  onLoggedIn: PropTypes.func.isRequired,
+  toggleRegister: PropTypes.func.isRequired,
+};

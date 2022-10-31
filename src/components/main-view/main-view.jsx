@@ -5,6 +5,8 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView }        from "../login-view/login-view";
 import { MovieCard }        from "../movie-card/movie-card";
 import { MovieView }        from "../movie-view/movie-view";
+
+import { Container, Row, Col } from "react-bootstrap";
 import './main-view.scss';
 
 export class MainView extends React.Component {
@@ -68,31 +70,40 @@ export class MainView extends React.Component {
 
     // before the movies have been loaded
     if (movies.length === 0) return (
-      <div className="main-view">Low-ding...</div>
+      <div className="main-view">Loading...</div>
     );
 
     return (
-      <div className="main-view">
-        <h1>Date Night Movies!</h1>
-        {selectedMovie ? (
-          <MovieView
-            movie={selectedMovie}
-            onBackClick={(newSelectedMovie) => {
-              this.setSelectedMovie(newSelectedMovie);
-            }}
-          />
-        ) : (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                this.setSelectedMovie(newSelectedMovie);
-              }}
-            />
-          ))
-        )}
-      </div>
+      <Container className="main-view">
+        {selectedMovie
+          ? (
+            <Row className="justify-content-center">
+              <Col md={8}>
+                <MovieView
+                  movie={selectedMovie}
+                  onBackClick={newSelectedMovie => {
+                    this.setSelectedMovie(newSelectedMovie);
+                  }}
+                />
+              </Col>
+            </Row>
+          ) : (
+            <Row className="justify-content-center">
+              {movies.map(movie => (
+                <Col md={3}>
+                  <MovieCard
+                    key={movie._id}
+                    movie={movie}
+                    onMovieClick={newSelectedMovie => {
+                      this.setSelectedMovie(newSelectedMovie);
+                    }}
+                  />
+                </Col>
+              ))}
+            </Row>
+          )
+        }
+      </Container>
     );
   } // end of render()
 }
