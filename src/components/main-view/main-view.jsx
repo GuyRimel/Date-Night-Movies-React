@@ -6,7 +6,7 @@ import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./main-view.scss";
 
 export class MainView extends React.Component {
@@ -21,16 +21,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get("https://datenightmovies.herokuapp.com/movies")
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
   }
 
   // when a movie is clicked, this function is invoked and updates the state
@@ -41,12 +38,40 @@ export class MainView extends React.Component {
 
   // when a user successfully logs in, this function updates the 'user'
   // property in state to that particular user
-  onLoggedIn(user) {
-    this.setState({ user });
+  onLoggedIn(authData) {
+    console.log(authData)
+    this.setState({
+      user: authData.user.Username
+    });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({ user: null });
   }
 
   toggleRegister(registered) {
     this.setState({ registered });
+  }
+
+  getMovies(token) {
+    axios.get('https://datenightmovies.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => {
+      // assign the result to the state
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(err => {
+      console.log(err)
+    });
   }
 
   render() {
@@ -77,7 +102,14 @@ export class MainView extends React.Component {
     return (
       <div className="main-view">
         <Row className='justify-content-center'>
-          <h2 className='text-light text-center p-3 w-100'></h2>
+          <Col className='text-light text-center'>
+            <h2>All Movies</h2>
+            <Button
+              onClick={() => this.onLoggedOut()}
+            >
+              Log Out
+            </Button>
+          </Col>
         </Row>
         {selectedMovie ? (
             <Row className="justify-content-center">
