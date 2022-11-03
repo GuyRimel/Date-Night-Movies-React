@@ -102,7 +102,7 @@ export class MainView extends React.Component {
     return (
       <div className="main-view">
         <Row className='justify-content-center'>
-          <Col className='text-light text-center'>
+          <Col className='text-light text-center p-0'>
             <h2>All Movies</h2>
             <Button
               onClick={() => this.onLoggedOut()}

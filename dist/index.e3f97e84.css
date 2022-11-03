@@ -1,8 +1,8 @@
-.movie-card {
-  margin: .25em;
+.card-body {
+  background-color: #f5f5f5;
 }
 
-form {
+.movie-view {
   background-color: #f5f5f5;
   border-radius: 13px;
   padding: 1.35em;
@@ -10,9 +10,9 @@ form {
 
 
 
-.main-view {
-  background-color: #f5f5f5;
-}
+
+
+
 
 h1 {
   background-color: #64dd17;
@@ -27,6 +27,25 @@ h2 {
 
 a {
   cursor: pointer;
+}
+
+img {
+  background-color: #cdcdcd;
+}
+
+button {
+  margin: .5em;
+}
+
+form {
+  background-color: #f5f5f5;
+  border: 1px solid #dedede;
+  border-radius: 13px;
+  padding: 1.35em;
+}
+
+.app-container {
+  background-color: #dbdbdb;
 }
 
 /*# sourceMappingURL=index.e3f97e84.css.map */

@@ -8,21 +8,49 @@ import './login-view.scss';
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
+  // declare a hook for each input
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
+
+  //validate user inputs
+  const validate = () => {
+    let isReq = true;
+
+    if(!username) {
+      setUsernameErr('Username is required.');
+      isReq = false;
+    } else if(username.length < 3) {
+      setUsernameErr('Username must be at least 3 characters long.');
+      isReq = false;
+    }
+    if(!password) {
+      setPasswordErr('Password is required.');
+      isReq = false;
+    } else if (password.length < 6) {
+      setPasswordErr('Password must be at least 6 characters long.');
+      isReq = false;
+    }
+
+    return isReq;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send a request to the server for authentication
-    axios.post('https://datenightmovies.herokuapp.com/login', {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(err => {
-      console.log('no such user!!! ' + err);
-    });
+    const isReq = validate();
+    if(isReq) {
+      // Send a request to the server for authentication
+      axios.post('https://datenightmovies.herokuapp.com/login', {
+        Username: username,
+        Password: password
+      })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(err => {
+        console.log('wrong username or password!!! ' + err);
+      });
+    }
   };
 
   const handleRegisterClick = (e) => {
@@ -39,24 +67,32 @@ export function LoginView(props) {
       </Row>
       <Row className='justify-content-center m-2'>
         <Form>
-          <Form.Group>
+          <Form.Group controlId='formUsername'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
               className='mb-3'
               type='text'
+              placeholder='Username Here'
+              value={username}
               onChange={e => setUsername(e.target.value)}
             />
+            {/* validation errors display here */}
+            {usernameErr && <p>{usernameErr}</p>}
           </Form.Group>
-          <Form.Group>
+          <Form.Group controlId='formPassword'>
             <Form.Label>Password: </Form.Label>
             <Form.Control
               className='mb-3'
               type='password'
+              placeholder='Password Here'
+              value={password}
               onChange={e => setPassword(e.target.value)}
             />
+            {/* validation errors display here */}
+            {passwordErr && <p>{passwordErr}</p>}
           </Form.Group>
           <Button
-            variant='warning'
+            variant='success'
             type='submit'
             onClick={handleSubmit}
           >
