@@ -12,38 +12,43 @@ export function RegistrationView(props) {
   const [ email, setEmail ] = useState('');
   const [ birthday, setBirthday ] = useState('');
   // declare hooks for each input
-  const [ values, setValues ] = useState ({
-    nameErr: '',
-    usernameErr: '',
-    passwordErr: '',
-    emailErr: '',
-  })
+  const [ nameErr, setNameErr ] = useState('');
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
+  const [ emailErr, setEmailErr ] = useState('');
+
 
   const validate = () => {
     let isReq = true;
 
+    // every time validate is called, validation strings start empty
+    setNameErr('');
+    setUsernameErr('');
+    setPasswordErr('');
+    setEmailErr('');
+
     if(!name) {
-      setValues({...values, nameErr: 'Name required.'});
+      setNameErr('Name required.');
       isReq = false;
     }
     if(!username) {
-      setValues({...values, nameErr: 'Username Required.'});
+      setUsernameErr('Username Required.');
       isReq = false;
     } else if (username.length < 5) {
-      setValues({...values, nameErr: 'Username must be at least 5 characters long.'});
+      setUsernameErr('Username must be at least 5 characters long.');
       isReq = false;
     }
     if(!password) {
-      setValues({...values, passwordErr: 'Password required.'});
-    } else if (password < 6) {
-      setValues({...values, passwordErr: 'Password must be at least 6 characters long.'});
+      setPasswordErr('Password required.');
+    } else if (password.length < 6) {
+      setPasswordErr('Password must be at least 6 characters long.');
       isReq = false;
     }
     if(!email) {
-      setValues({...values, emailErr: 'Email required.'});
+      setEmailErr('Email required.');
       isReq = false;
     } else if (email.indexOf('@') === -1) {
-      setValues({...values, emailErr: 'invalid email.'});
+      setEmailErr('invalid email.');
       isReq = false;
     }
   
@@ -90,55 +95,50 @@ export function RegistrationView(props) {
           <Form.Group controlId='formName'>
             <Form.Label>Name: </Form.Label>
             <Form.Control
-              className='mb-3'
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             {/* validation errors display here */}
-            {values.nameErr && <p>{values.nameErr}</p>}
+            {nameErr && <p className='alert alert-danger'>{nameErr}</p>}
           </Form.Group>
 
           <Form.Group controlId='formUsername'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
-              className='mb-3'
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
             {/* validation errors display here */}
-            {values.usernameErr && <p>{values.usernameErr}</p>}
+            {usernameErr && <p className='alert alert-danger'>{usernameErr}</p>}
           </Form.Group>
 
           <Form.Group controlId='formPassword'>
             <Form.Label>Password: </Form.Label>
             <Form.Control
-              className='mb-3'
               type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             {/* validation errors display here */}
-            {values.passwordErr && <p>{values.passwordErr}</p>}
+            {passwordErr && <p className='alert alert-danger'>{passwordErr}</p>}
           </Form.Group>
 
           <Form.Group controlId='formEmail'>
             <Form.Label>Email:</Form.Label>
             <Form.Control
-              className='mb-3'
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               />
               {/* validation errors display here */}
-              {values.emailErr && <p>{values.emailErr}</p>}
+              {emailErr && <p className='alert alert-danger'>{emailErr}</p>}
           </Form.Group>
 
           <Form.Group controlId='formBirthday'>
             <Form.Label>Birthday:</Form.Label>
             <Form.Control
-              className='mb-3'
               type="date"
               value={birthday}
               onChange={(e) => setBirthday(e.target.value)}

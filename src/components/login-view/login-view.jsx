@@ -16,6 +16,9 @@ export function LoginView(props) {
   const validate = () => {
     let isReq = true;
 
+    setUsernameErr('');
+    setPasswordErr('');
+
     if(!username) {
       setUsernameErr('Username is required.');
       isReq = false;
@@ -70,26 +73,24 @@ export function LoginView(props) {
           <Form.Group controlId='formUsername'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
-              className='mb-3'
               type='text'
               placeholder='Username Here'
               value={username}
               onChange={e => setUsername(e.target.value)}
             />
             {/* validation errors display here */}
-            {usernameErr && <p>{usernameErr}</p>}
+            {usernameErr && <p className='alert alert-danger'>{usernameErr}</p>}
           </Form.Group>
           <Form.Group controlId='formPassword'>
             <Form.Label>Password: </Form.Label>
             <Form.Control
-              className='mb-3'
               type='password'
               placeholder='Password Here'
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
             {/* validation errors display here */}
-            {passwordErr && <p>{passwordErr}</p>}
+            {passwordErr && <p className='alert alert-danger'>{passwordErr}</p>}
           </Form.Group>
           <Button
             variant='success'
