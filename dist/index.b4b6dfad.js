@@ -32420,9 +32420,11 @@ function RegistrationView(props) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
                 className: "justify-content-center m-2",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
+                    className: "w-50",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formName",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Name: "
@@ -32456,6 +32458,7 @@ function RegistrationView(props) {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formUsername",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Username: "
@@ -32489,6 +32492,7 @@ function RegistrationView(props) {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formPassword",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Password: "
@@ -32522,6 +32526,7 @@ function RegistrationView(props) {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formEmail",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Email:"
@@ -32555,6 +32560,7 @@ function RegistrationView(props) {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formBirthday",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Birthday:"
@@ -32579,6 +32585,7 @@ function RegistrationView(props) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            className: "m-2",
                             variant: "warning",
                             type: "submit",
                             onClick: handleSubmit,
@@ -32608,12 +32615,12 @@ function RegistrationView(props) {
                     children: "Click here to login with an existing account."
                 }, void 0, false, {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 158,
+                    lineNumber: 159,
                     columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/registration-view/registration-view.jsx",
-                lineNumber: 157,
+                lineNumber: 158,
                 columnNumber: 11
             }, this)
         ]
@@ -34930,6 +34937,7 @@ function LoginView(props) {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formUsername",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Username: "
@@ -34964,6 +34972,7 @@ function LoginView(props) {
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                             controlId: "formPassword",
+                            className: "p-2",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
                                     children: "Password: "
@@ -34997,6 +35006,7 @@ function LoginView(props) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            className: "m-2",
                             variant: "success",
                             type: "submit",
                             onClick: handleSubmit,
@@ -35026,12 +35036,12 @@ function LoginView(props) {
                     children: "Click here to register a new account."
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 105,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 104,
+                lineNumber: 105,
                 columnNumber: 7
             }, this)
         ]

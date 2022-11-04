@@ -91,8 +91,8 @@ export function RegistrationView(props) {
         <h2 className='text-light text-center p-3 w-100'>Please Register</h2>
       </Row>
       <Row className='justify-content-center m-2'>
-        <Form>
-          <Form.Group controlId='formName'>
+        <Form className='w-50'>
+          <Form.Group controlId='formName' className='p-2'>
             <Form.Label>Name: </Form.Label>
             <Form.Control
               type="text"
@@ -103,7 +103,7 @@ export function RegistrationView(props) {
             {nameErr && <p className='alert alert-danger'>{nameErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='formUsername'>
+          <Form.Group controlId='formUsername' className='p-2'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
               type="text"
@@ -114,7 +114,7 @@ export function RegistrationView(props) {
             {usernameErr && <p className='alert alert-danger'>{usernameErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='formPassword'>
+          <Form.Group controlId='formPassword' className='p-2'>
             <Form.Label>Password: </Form.Label>
             <Form.Control
               type="text"
@@ -125,7 +125,7 @@ export function RegistrationView(props) {
             {passwordErr && <p className='alert alert-danger'>{passwordErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='formEmail'>
+          <Form.Group controlId='formEmail' className='p-2'>
             <Form.Label>Email:</Form.Label>
             <Form.Control
               type="text"
@@ -136,7 +136,7 @@ export function RegistrationView(props) {
               {emailErr && <p className='alert alert-danger'>{emailErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='formBirthday'>
+          <Form.Group controlId='formBirthday' className='p-2'>
             <Form.Label>Birthday:</Form.Label>
             <Form.Control
               type="date"
@@ -146,6 +146,7 @@ export function RegistrationView(props) {
           </Form.Group>
 
           <Button
+            className='m-2'
             variant='warning'
             type="submit"
             onClick={handleSubmit}

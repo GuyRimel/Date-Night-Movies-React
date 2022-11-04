@@ -70,7 +70,7 @@ export function LoginView(props) {
       </Row>
       <Row className='justify-content-center m-2'>
         <Form>
-          <Form.Group controlId='formUsername'>
+          <Form.Group controlId='formUsername' className='p-2'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
               type='text'
@@ -81,7 +81,7 @@ export function LoginView(props) {
             {/* validation errors display here */}
             {usernameErr && <p className='alert alert-danger'>{usernameErr}</p>}
           </Form.Group>
-          <Form.Group controlId='formPassword'>
+          <Form.Group controlId='formPassword' className='p-2'>
             <Form.Label>Password: </Form.Label>
             <Form.Control
               type='password'
@@ -93,6 +93,7 @@ export function LoginView(props) {
             {passwordErr && <p className='alert alert-danger'>{passwordErr}</p>}
           </Form.Group>
           <Button
+            className='m-2'
             variant='success'
             type='submit'
             onClick={handleSubmit}
