@@ -11,9 +11,11 @@ class DNMApplication extends React.Component {
     return (
       <Container fluid>
         <Row>
-          <h1 className="text-dark text-center p-3 m-0 w-100">
-            Date Night Movies!
-          </h1>
+          <header className='p-3 m-0 w-100'>
+            <h1 className="text-dark text-center">
+              Date Night Movies!
+            </h1>
+          </header>
         </Row>
         <MainView />
       </Container>

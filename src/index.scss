@@ -1,14 +1,20 @@
-$color-h1: #64dd17;
+$color-bright: #64dd17;
+$color-dark: darken($color-bright, 25%);
+$color-bg: #dbdbdb;
 
-h1 {
-  background-color: $color-h1;
+:root {
+  background-color: $color-bg;
+}
+
+header {
+  background-color: $color-bright;
 }
 
 h2 {
-  background-color: darken($color-h1, 25%);
+  background-color: $color-dark;
   box-shadow: 0 8px 8px 4px #888;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
 }
 
 a { cursor: pointer; }
@@ -29,5 +35,5 @@ form {
 }
 
 .app-container {
-  background-color: #dbdbdb;
+  background-color: $color-bg;
 }

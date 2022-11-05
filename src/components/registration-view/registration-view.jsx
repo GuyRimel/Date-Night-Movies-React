@@ -21,7 +21,7 @@ export function RegistrationView(props) {
   const validate = () => {
     let isReq = true;
 
-    // every time validate is called, validation strings start empty
+    // every time validate() is called, validation strings start empty
     setNameErr('');
     setUsernameErr('');
     setPasswordErr('');
