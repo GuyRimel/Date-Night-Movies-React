@@ -5,7 +5,7 @@ import axios                      from 'axios';
 import { Row, Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 
-export function LoginView(props) {
+export default function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   // declare a hook for each input

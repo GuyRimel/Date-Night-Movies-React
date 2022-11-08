@@ -1,0 +1,7 @@
+$color-bright: #64dd17;
+$color-dark: darken($color-bright, 25%);
+$color-bg: #dbdbdb;
+
+.bright-bg {
+  background-color: $color-bright;
+}

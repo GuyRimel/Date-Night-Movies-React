@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { MainView } from "./components/main-view/main-view";
+import MainView from "./components/main-view/main-view";
 
 import { Container, Row } from "react-bootstrap";
 import "./index.scss";
@@ -9,16 +9,7 @@ import "./index.scss";
 class DNMApplication extends React.Component {
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <header className='p-3 m-0 w-100'>
-            <h1 className="text-dark text-center">
-              Date Night Movies!
-            </h1>
-          </header>
-        </Row>
-        <MainView />
-      </Container>
+      <MainView />
     );
   }
 }
