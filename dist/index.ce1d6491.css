@@ -6,13 +6,6 @@ header {
   background-color: #64dd17;
 }
 
-h2 {
-  background-color: #306a0b;
-  border-bottom-left-radius: 25%;
-  border-bottom-right-radius: 25%;
-  box-shadow: 0 8px 8px 4px #888;
-}
-
 a {
   cursor: pointer;
 }
@@ -53,5 +46,7 @@ form {
 .bright-bg {
   background-color: #64dd17;
 }
+
+
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

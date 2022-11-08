@@ -2,7 +2,7 @@ import React, { useState }        from 'react';
 import PropTypes                  from 'prop-types';
 import axios                      from 'axios';
 
-import { Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Form, Button } from 'react-bootstrap';
 import './login-view.scss';
 
 export default function LoginView(props) {
@@ -64,12 +64,10 @@ export default function LoginView(props) {
 
 
   return (
-    <div className='login-view'>
-      <Row className='justify-content-center'>
-        <h2 className='text-light text-center p-3 w-100'>Please Login</h2>
-      </Row>
+    <Container className='login-view'>
       <Row className='justify-content-center m-2'>
         <Form>
+          <h4 className='text-dark text-center p-1 w-100'>Please Login</h4>
           <Form.Group controlId='formUsername' className='p-2'>
             <Form.Label>Username: </Form.Label>
             <Form.Control
@@ -111,7 +109,7 @@ export default function LoginView(props) {
           Click here to register a new account.
         </a>
       </Row>
-    </div>
+    </Container>
   );
 }
 
