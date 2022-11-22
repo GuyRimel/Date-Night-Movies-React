@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import { SET_FILTER, SET_MOVIES } from '../actions/actions';
 
-// reducers receive an action with a type and arguments, and modify the state(store) //////////
+// reducers receive a state and action, to modify the state(store) //////////
+// reducers only touch what they're concerned with. they calc the next state and return it
 function visibilityFilter(state = '', action) {
   switch(action.type) {
     case SET_FILTER:
@@ -26,3 +27,5 @@ function moviesApp(state = '', action) {
     movies: movies(state.movies, action)
   }
 }
+
+export default moviesApp;
