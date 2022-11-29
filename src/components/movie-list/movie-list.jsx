@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   return { visibilityFilter };
 };
 
-function MoviesList(props) {
+function MovieList(props) {
   const { movies, visibilityFilter } = props;
   let filteredMovies = movies;
 
@@ -32,4 +32,4 @@ function MoviesList(props) {
   </>;
 }
 
-export default connect(mapStateToProps)(MoviesList)
+export default connect(mapStateToProps)(MovieList)

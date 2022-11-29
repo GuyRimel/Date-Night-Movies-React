@@ -22,14 +22,14 @@ img {
 
 
 
+.bright-bg {
+  background-color: #64dd17;
+}
+
 
 
 .genre-view {
   margin-top: 20px;
-}
-
-.bright-bg {
-  background-color: #64dd17;
 }
 
 :root {
