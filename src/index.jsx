@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import {createRoot} from "react-dom/client";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moviesApp from "./reducers/reducers";
@@ -17,7 +17,7 @@ class DNMApplication extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container>
+        <Container fluid>
           <MainView />
         </Container>
       </Provider>
@@ -25,8 +25,10 @@ class DNMApplication extends React.Component {
   }
 }
 
-// plant the root DOM element
-const container = document.getElementsByClassName('app-container')[0];
+// 'container' is the root DOM element
+const container = document.getElementsByClassName("app-container")[0];
+const root = createRoot(container);
 
-// Tells React to render your app in the root DOM element
-ReactDOM.render(React.createElement(DNMApplication), container);
+// this tells React to render the app in the root DOM element
+// ReactDOM.render(React.createElement(DNMApplication), container);
+root.render(React.createElement(DNMApplication));

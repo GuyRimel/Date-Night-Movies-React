@@ -49,6 +49,16 @@ img {
   margin-top: 20px;
 }
 
+.row {
+  background: #255209;
+}
+
+.bright-bg {
+  background-color: #64dd17;
+}
+
+
+
 .card-body {
   background-color: #f5f5f5;
 }
@@ -57,10 +67,6 @@ img {
   height: 400px;
   object-fit: cover;
   background-color: #444;
-}
-
-.bright-bg {
-  background-color: #64dd17;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

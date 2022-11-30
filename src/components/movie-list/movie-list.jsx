@@ -1,35 +1,61 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import VisibilityInputFilter from '../visibility-filter-input/visibility-filter-input';
+import MovieCard from '../movie-card/movie-card';
+import { Col, Row } from 'react-bootstrap';
 
-import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
-import { MovieCard } from '../movie-card/movie-card';
+const MovieList = ({visibilityFilter, movies, user}) => {
 
-const mapStateToProps = state => {
-  const { visibilityFilter } = state;
-  return { visibilityFilter };
-};
+    let filteredMovies = movies;
+    let userFavList = user.FavoriteMovies;
 
-function MovieList(props) {
-  const { movies, visibilityFilter } = props;
-  let filteredMovies = movies;
+    if( visibilityFilter !== ''){
+        filteredMovies = movies.filter(m => m.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
+    }
 
-  if (visibilityFilter !== '') {
-    filteredMovies = movies.filter(m => m.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
-  }
+    if(!movies)
+        return <div className="main-view" />;
 
-  if (!movies) return <div className="main-view"/>;
+    //handle fav movie btn clicked
+    const addMovieToUserList = (movieId) =>{
+        console.log(movieId);
+        const token = localStorage.getItem('token');
 
-  return <>
-    <Col md={12} style={{ margin: '1em' }}>
-      <VisibilityFilterInput visibilityFilter={visibilityFilter} />
-    </Col>
-    {filteredMovies.map(m => (
-      <Col md={3} key={m._id}>
-        <MovieCard movie={m} />
-      </Col>
-    ))}
-  </>;
+        axios.post(`https://datenightmovies.herokuapp.com/movies/users/${user.Username}/movies/${movieId}`,{},{
+            headers: { Authorization: `Bearer ${token}`}
+        })
+        .then((response) => {
+            const updatedUser = response.data;
+            console.log("Movie added to fav list");
+            localStorage.setItem('user', JSON.stringify(updatedUser));
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.log('Adding a movie to user list failed.', error);
+        })
+    }
+
+    return (
+      <Row className="px-2 px-md-5">
+        <VisibilityInputFilter visibilityFilter={visibilityFilter} />
+        {filteredMovies.map((m) => (
+          <Col md={3} key={m._id} className=" mt-3 g-4">
+            <MovieCard
+              movie={m}
+              liked={userFavList.includes(m._id)}
+              addFavMovie={(movieId) => addMovieToUserList(movieId)}
+            />
+          </Col>
+        ))}
+      </Row>
+    );
 }
 
-export default connect(mapStateToProps)(MovieList)
+const mapStateToProps = ({visibilityFilter, movies}, ownProps) =>({
+    visibilityFilter,
+    movies,
+    user: ownProps.user
+});
+
+export default connect(mapStateToProps)(MovieList);

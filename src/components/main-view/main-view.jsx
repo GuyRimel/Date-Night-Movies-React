@@ -7,7 +7,7 @@ import LoginView from "../login-view/login-view";
 import MovieView from "../movie-view/movie-view";
 import DirectorView from "../director-view/director-view";
 import GenreView from "../genre-view/genre-view";
-import Navbar from "../navbar/navbar";
+import NavBar from "../navbar/navbar";
 import ProfileView from "../profile-view/profile-view";
 import MovieList from "../movie-list/movie-list";
 import { setMovies } from "../../actions/actions";

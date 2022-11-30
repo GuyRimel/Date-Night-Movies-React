@@ -1,8 +1,9 @@
 import React from "react";
 import { Navbar, Nav, Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./navbar.scss";
 
-export function NavBar() {
+export default function NavBar() {
   let user = localStorage.getItem("user");
 
   const handleLogOut = (e) => {
@@ -24,7 +25,8 @@ export function NavBar() {
   };
 
   return (
-    <Navbar className="bright-bg w-100" variant="dark" expand="lg">
+    <Navbar className="bright-bg w-100 navbar" variant="dark" expand="lg">
+      <Container>
       <Navbar.Brand href="#">Date Night Movies!</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -52,6 +54,7 @@ export function NavBar() {
           )}
         </Nav>
       </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 }

@@ -1,6 +1,10 @@
 $color-bright: #64dd17;
-$color-dark: darken($color-bright, 25%);
+$color-dark: darken($color-bright, 30%);
 $color-bg: #dbdbdb;
+
+.row {
+  background: $color-dark;
+}
 
 .bright-bg {
   background-color: $color-bright;
