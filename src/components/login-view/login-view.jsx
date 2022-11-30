@@ -65,7 +65,7 @@ export default function LoginView(props) {
   };
 
   return (
-    <Container className="login-view">
+    <Container className="login-view" fluid>
       <Row className="justify-content-center m-2">
         <Form>
           <h4 className="text-dark text-center p-1 w-100">Please Login</h4>

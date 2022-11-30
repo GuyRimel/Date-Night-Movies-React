@@ -12,26 +12,26 @@ export default class MovieView extends React.Component {
 
     return (
       <div md={8} className="movie-view">
-        <Row className="m-1">
-          <Col className="movie-poster mb-2">
+        <Row className="p-1 m-0">
+          <Col className="movie-poster p-2 m-0">
             <Image src={movie.ImagePath} alt="movie image" rounded />
           </Col>
         </Row>
         <Row className="movie-title">
-          <Col className="mb-2">
+          <Col className="pb-2">
             <h3>{movie.Title}</h3>
           </Col>
         </Row>
         <Row className="movie-description">
           <Col>
             <div className="font-weight-bold">Description:</div>
-            <div className="mb-2">{movie.Description}</div>
+            <div className="pb-2">{movie.Description}</div>
           </Col>
         </Row>
         <Row className="movie-director">
           <Col>
             <div className="font-weight-bold">Director:</div>
-            <div className="mb-2">
+            <div className="pb-2">
               <Link to={`/directors/${movie.Director.Name}`}>
                 {movie.Director.Name}
               </Link>
@@ -41,7 +41,7 @@ export default class MovieView extends React.Component {
         <Row className="movie-genre">
           <Col>
             <div className="font-weight-bold">Genre: </div>
-            <div className="mb-2">
+            <div className="pb-2">
               <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
             </div>
           </Col>

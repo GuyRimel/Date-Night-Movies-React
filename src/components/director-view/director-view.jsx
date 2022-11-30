@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
 
 // Import React Bootstrap Components
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 // Import custom SCSS
 import "./director-view.scss";
+import { useHistory } from "react-router-dom";
 
-export default class DirectorView extends React.Component {
-  render() {
-    const { director, onBackClick, movies, movie } = this.props;
-    console.log(movie);
+export default DirectorView = ({ movie }) => {
+  const history = useHistory();
+
     return (
       <Container>
         <Card className="dir-view">
@@ -34,7 +34,6 @@ export default class DirectorView extends React.Component {
       </Container>
     );
   }
-}
 
 DirectorView.proptypes = {
     Director: PropTypes.shape({

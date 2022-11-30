@@ -1,5 +1,5 @@
 :root {
-  background-color: #dbdbdb;
+  background-color: #255209;
 }
 
 header {
@@ -25,10 +25,6 @@ form {
   padding: 1.35em;
 }
 
-.app-container {
-  background-color: inherit;
-}
-
 
 
 
@@ -39,8 +35,18 @@ form {
   padding: 1.35em;
 }
 
+.movie-view * {
+  background: #fff;
+  margin: 0;
+}
+
 img {
   width: 100%;
+}
+
+.movie-poster {
+  background-color: #dbdbdb;
+  border-radius: 7px;
 }
 
 

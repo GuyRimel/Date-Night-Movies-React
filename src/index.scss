@@ -1,9 +1,9 @@
 $color-bright: #64dd17;
-$color-dark: darken($color-bright, 25%);
+$color-dark: darken($color-bright, 30%);
 $color-bg: #dbdbdb;
 
 :root {
-  background-color: $color-bg;
+  background-color: $color-dark;
 }
 
 header {
@@ -25,8 +25,4 @@ form {
   padding: 1.35em;
   border: 1px solid #dedede;
   border-radius: 13px;
-}
-
-.app-container {
-  background-color: inherit;
 }
