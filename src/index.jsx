@@ -1,6 +1,7 @@
 import React from "react";
 import {createRoot} from "react-dom/client";
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
+import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux';
 import moviesApp from "./reducers/reducers";
 import MainView from "./components/main-view/main-view";
@@ -11,13 +12,19 @@ import "./index.scss";
 
 // main React component
 // create Redux store // "createStore" is deprecated...
-const store = createStore(moviesApp, devToolsEnhancer());
+const store = configureStore({
+	reducer: {
+		user: userReducer,
+		movies: moviesReducer,
+		visibilityFilter: visibilityfilterReducer
+	}
+	});
 
 class DNMApplication extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container fluid>
+        <Container>
           <MainView />
         </Container>
       </Provider>
@@ -31,4 +38,4 @@ const root = createRoot(container);
 
 // this tells React to render the app in the root DOM element
 // ReactDOM.render(React.createElement(DNMApplication), container);
-root.render(React.createElement(DNMApplication));
+root.render(<DNMApplication />);
