@@ -3,7 +3,7 @@ import {createRoot} from "react-dom/client";
 // import { createStore } from 'redux';
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux';
-import moviesApp from "./reducers/reducers";
+import moviesSlice from "./reducers/
 import MainView from "./components/main-view/main-view";
 import { devToolsEnhancer } from 'redux-devtools-extension';
 import { Container, Row } from "react-bootstrap";
