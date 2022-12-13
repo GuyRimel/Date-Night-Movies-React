@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button, Image, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import './movie-view.scss'
 
@@ -30,14 +30,11 @@ export function MovieView({movies}) {
 
 	return (
 		<Row>
-			{selectMovie().ImagePath === undefined ? (null) : (
-			<Col className="d-flex  justify-content-evenly" md={6}>
+			<Col className='col-md-6'>
+				<Image src={selectMovie().ImagePath} fluid/>
+			</Col>
+			<Col md={6}>
 				<Card>
-					<Card.Img
-						className="image"
-						variant="top"
-						src={selectMovie().ImagePath}
-					/>
 					<Card.Body>
 						<Card.Title>{selectMovie().Title}</Card.Title>
 
@@ -46,24 +43,24 @@ export function MovieView({movies}) {
 						<Card.Text>Director: {selectMovie().Director.Name}</Card.Text>
 
 						<Link to={`/directors/${selectMovie().Director.Name}`}>
-							<Button variant="outline-secondary">Director Info</Button>
+							<Button variant="outline-primary">Director Info</Button>
 						</Link>
 
 						<Card.Text>Genre: {selectMovie().Genre.Name}</Card.Text>
 
 						<Link to={`/genre/${selectMovie().Genre.Name}`}>
-							<Button variant="outline-secondary">Genre Info</Button>
+							<Button variant="outline-primary">Genre Info</Button>
 						</Link>
 
 						<Link to={-1}>
-							<Button className="float-end mx-3" variant="outline-secondary">
+							<Button className="float-end mx-3" variant="outline-danger">
 								Back
 							</Button>
 						</Link>
 
 						<Button
 							className="float-end"
-							variant="outline-secondary"
+							variant="outline-success"
 							onClick={() => addFav(movieId)}
 						>
 							Add to Favorites
@@ -71,7 +68,6 @@ export function MovieView({movies}) {
 					</Card.Body>
 				</Card>
 				</Col>
-				)}
 		</Row>
 	);
   }

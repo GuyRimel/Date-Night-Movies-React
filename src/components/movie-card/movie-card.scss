@@ -1,0 +1,35 @@
+.movie-card {
+  background-color: hsl(0, 0%, 95%);
+  box-shadow: 0 .25em #0002;
+}
+
+.movie-card-img {
+  height: 28em;
+  object-fit: cover;
+  padding: .25em;
+  background-color: hsl(0, 0%, 95%);
+  padding: .5em;
+}
+
+.movie-card-container {
+  height: 15em;
+  overflow: hidden;
+}
+
+.movie-card-title {
+  width: 100%;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.movie-card-body {
+}
+
+.btn-primary.bg-green {
+  background-color: hsl(135, 80%, 40%);
+  border: 1px solid #777;
+}
+
+.btn-primary.bg-green:hover {
+  background-color: hsl(135, 40%, 40%);
+  border: 1px solid #fff;
+}

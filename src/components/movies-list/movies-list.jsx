@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Form } from 'react-bootstrap';
+import { Row, Col, Form } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { filter } from "../../features/visibilityfilter-reducer";
 import { MovieCard } from '../movie-card/movie-card';
@@ -14,21 +14,20 @@ function MoviesList() {
 		);
 
   return (
-		<>
+		<Row>
 			<Col md={12}>
 				<Form.Control
 					onChange={(e) => dispatch(filter(e.target.value))}
 					value={visibilityFilter}
-					placeholder="filter"
+					placeholder="Search"
 				/>
 			</Col>
 			{visibilityFilter !== ""
 				? filteredMovies.map((m) => (
 						<Col
-							sm={6}
-							md={4}
-							lg={3}
-							className="d-flex align-content-stretch"
+							sm={12}
+							md={6}
+							lg={4}
 							key={m._id}
 						>
 							<MovieCard movie={m} />
@@ -36,16 +35,15 @@ function MoviesList() {
 				  ))
 				: movies.map((m) => (
 						<Col
-							sm={6}
-							md={4}
-							lg={3}
-							className="d-flex align-content-stretch"
+							sm={12}
+							md={6}
+							lg={4}
 							key={m._id}
 						>
 							<MovieCard movie={m} />
 						</Col>
 				  ))}
-		</>
+		</Row>
 	);
 }
 

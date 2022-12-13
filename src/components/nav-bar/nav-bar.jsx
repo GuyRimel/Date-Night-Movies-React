@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Button, Link } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./nav-bar.scss";
 
@@ -22,28 +22,28 @@ export function NavBar({ user }) {
 
   return (
 		<>
-			<Container>
-				<Navbar className="nav mb-1" variant="dark">
+				<Navbar className="nav mb-2" variant="dark" expand="lg">
 					<Container>
 						<Navbar.Brand href="/">Date Night Movies!</Navbar.Brand>
-						<Nav className="d-flex align-items-baseline">
-
-							<NavLink className="text p-3" to="/">
-								Home
-							</NavLink>
-							{isAuth() && (<NavLink className="text p-3" to={`/users/${user}`}>
-								Profile
-							</NavLink>)}
-							{!isAuth() && (<NavLink className="text p-3" to="/register">
-								Register
-							</NavLink>)}
-							{isAuth() && (<Button className="p-3 bg-transparent border-0" variant="primary" onClick={onLoggedOut}>
-								Logout
-							</Button>)}
-						</Nav>
+						<Navbar.Toggle aria-controls="basic-navbar-nav" />
+        		<Navbar.Collapse>
+							<Nav className="align-items-start">
+								<NavLink className="text m-2" to="/">
+									Home
+								</NavLink>
+								{isAuth() && (<NavLink className="text m-2" to={`/users/${user}`}>
+									Profile
+								</NavLink>)}
+								{!isAuth() && (<NavLink className="text m-2" to="/register">
+									Register
+								</NavLink>)}
+								{isAuth() && (<NavLink className="text m-2" onClick={onLoggedOut}>
+									Logout
+								</NavLink>)}
+							</Nav>
+						</Navbar.Collapse>
 					</Container>
 				</Navbar>
-			</Container>
 		</>
 	);
 }
