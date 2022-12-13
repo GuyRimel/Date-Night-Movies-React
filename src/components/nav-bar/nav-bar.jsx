@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import "./navbar.scss";
+import "./nav-bar.scss";
 
-export default function Navbar({ user }) {
+export function NavBar({ user }) {
   const onLoggedOut = () => {
 		localStorage.clear();
 		window.open("/", "_self");
@@ -25,7 +25,7 @@ export default function Navbar({ user }) {
 			<Container>
 				<Navbar className="nav mb-1" variant="dark">
 					<Container>
-						<Navbar.Brand href="/">See You at the Movies!</Navbar.Brand>
+						<Navbar.Brand href="/">Date Night Movies!</Navbar.Brand>
 						<Nav className="d-flex align-items-baseline">
 
 							<NavLink className="text p-3" to="/">
@@ -47,3 +47,5 @@ export default function Navbar({ user }) {
 		</>
 	);
 }
+
+export default NavBar;

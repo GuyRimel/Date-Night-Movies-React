@@ -12,10 +12,10 @@ import { MovieView } from "../movie-view/movie-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from "../profile-view/profile-view";
-import Navbar from "../navbar/navbar";
+import { NavBar } from "../nav-bar/nav-bar";
 import "./main-view.scss";
 
-export default function MainView() {
+function MainView() {
 	const user = useSelector((state) => state.user.value);
 	const movies = useSelector((state) => state.movies.value);
 	const dispatch = useDispatch();
@@ -53,7 +53,7 @@ export default function MainView() {
 		<BrowserRouter>
 			<Container fluid>
 				<Row>
-					<Navbar user={user} />
+					<NavBar user={user} />
 				</Row>
 				<Row className="main-view justify-content-md-center">
 					<Routes>
@@ -116,3 +116,5 @@ export default function MainView() {
 		</BrowserRouter>
 	);
 }
+
+export default MainView;

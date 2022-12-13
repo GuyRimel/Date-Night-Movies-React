@@ -15,7 +15,7 @@ export function MovieView({movies}) {
 
 	const addFav = (movieId) => {
 		let token = localStorage.getItem("token");
-		let url = `https://seeyouatmovies.herokuapp.com/users/${localStorage.getItem(
+		let url = `https://datenightmovies.herokuapp.com/users/${localStorage.getItem(
 				"user")}/movies/${movieId}`;
 			axios.post(url, null, {
 				headers: { Authorization: `Bearer ${token}` },

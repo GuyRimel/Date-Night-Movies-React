@@ -1,28 +1,5 @@
-$color-bright: #64dd17;
-$color-dark: darken($color-bright, 30%);
-$color-bg: #dbdbdb;
+$color: steelblue;
 
-:root {
-  background-color: $color-dark;
-}
-
-header {
-  background-color: $color-bright;
-}
-
-a { cursor: pointer; }
-
-img {
-  background-color: #cdcdcd;
-}
-
-button {
-  margin: 0.5em;
-}
-
-form {
-  background-color: whitesmoke;
-  padding: 1.35em;
-  border: 1px solid #dedede;
-  border-radius: 13px;
+.my-flix {
+  color: $color;
 }

@@ -1,11 +1,9 @@
-$color-bright: #64dd17;
-$color-dark: darken($color-bright, 30%);
-$color-bg: #dbdbdb;
+$color: hsl(135, 90%, 32%);
 
-.row {
-  background: $color-dark;
+.nav {
+  background-color: $color;
 }
 
-.bright-bg {
-  background-color: $color-bright;
+.nav-logo {
+  float: left;
 }
