@@ -1,90 +1,77 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
+import './movie-view.scss'
 
-import { Row, Col, Button, Image } from "react-bootstrap";
-import "./movie-view.scss";
+export function MovieView({movies}) {
 
-import { Link } from "react-router-dom";
+	const selectMovie = () => {
+		const { id } = useParams();
+		return movies.find(m => m._id === id);
+	};
 
-export default class MovieView extends React.Component {
-  render() {
-    const { movie, onBackClick, handleFavorite } = this.props;
+	const movieId = selectMovie()._id;
 
-    return (
-      <div md={8} className="movie-view">
-        <Row className="p-1 m-0">
-          <Col className="movie-poster p-2 m-0">
-            <Image src={movie.ImagePath} alt="movie image" rounded />
-          </Col>
-        </Row>
-        <Row className="movie-title">
-          <Col className="pb-2">
-            <h3>{movie.Title}</h3>
-          </Col>
-        </Row>
-        <Row className="movie-description">
-          <Col>
-            <div className="font-weight-bold">Description:</div>
-            <div className="pb-2">{movie.Description}</div>
-          </Col>
-        </Row>
-        <Row className="movie-director">
-          <Col>
-            <div className="font-weight-bold">Director:</div>
-            <div className="pb-2">
-              <Link to={`/directors/${movie.Director.Name}`}>
-                {movie.Director.Name}
-              </Link>
-            </div>
-          </Col>
-        </Row>
-        <Row className="movie-genre">
-          <Col>
-            <div className="font-weight-bold">Genre: </div>
-            <div className="pb-2">
-              <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
-            </div>
-          </Col>
-        </Row>
-        <Col>
-          <Button
-            className="my-4 ml-2"
-            variant="outline-primary"
-            onClick={() => handleFavorite(movie._id, "add")}
-          >
-            Add to favorite ❤ Movies
-          </Button>
-          <Button
-            className="mt-2 mr-2 mb-2"
-            variant="warning"
-            onClick={() => {
-              onBackClick();
-            }}
-          >
-            Back
-          </Button>
-        </Col>
-      </div>
-    );
+	const addFav = (movieId) => {
+		let token = localStorage.getItem("token");
+		let url = `https://seeyouatmovies.herokuapp.com/users/${localStorage.getItem(
+				"user")}/movies/${movieId}`;
+			axios.post(url, null, {
+				headers: { Authorization: `Bearer ${token}` },
+			})
+			.then((response) => {
+        alert("Your favorite movies list has been updated");
+        })
+      .catch((error) => {
+        console.log(error);
+      });
+	};
+
+	return (
+		<Row>
+			{selectMovie().ImagePath === undefined ? (null) : (
+			<Col className="d-flex  justify-content-evenly" md={6}>
+				<Card>
+					<Card.Img
+						className="image"
+						variant="top"
+						src={selectMovie().ImagePath}
+					/>
+					<Card.Body>
+						<Card.Title>{selectMovie().Title}</Card.Title>
+
+						<Card.Text>Description: {selectMovie().Description}</Card.Text>
+
+						<Card.Text>Director: {selectMovie().Director.Name}</Card.Text>
+
+						<Link to={`/directors/${selectMovie().Director.Name}`}>
+							<Button variant="outline-secondary">Director Info</Button>
+						</Link>
+
+						<Card.Text>Genre: {selectMovie().Genre.Name}</Card.Text>
+
+						<Link to={`/genre/${selectMovie().Genre.Name}`}>
+							<Button variant="outline-secondary">Genre Info</Button>
+						</Link>
+
+						<Link to={-1}>
+							<Button className="float-end mx-3" variant="outline-secondary">
+								Back
+							</Button>
+						</Link>
+
+						<Button
+							className="float-end"
+							variant="outline-secondary"
+							onClick={() => addFav(movieId)}
+						>
+							Add to Favorites
+						</Button>
+					</Card.Body>
+				</Card>
+				</Col>
+				)}
+		</Row>
+	);
   }
-}
-
-// propTypes will throw an error if the data isn't the right "shape"
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-    }).isRequired,
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
-};

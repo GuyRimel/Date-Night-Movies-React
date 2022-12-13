@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-
 import { Container, Row, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./login-view.scss";
 
 export default function LoginView(props) {
+  // declare a hook for each input
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // declare a hook for each input
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
 
   //validate user inputs
   const validate = () => {
     let isReq = true;
-
-    setUsernameErr("");
-    setPasswordErr("");
 
     if (!username) {
       setUsernameErr("Username is required.");
@@ -34,7 +30,6 @@ export default function LoginView(props) {
       setPasswordErr("Password must be at least 6 characters long.");
       isReq = false;
     }
-
     return isReq;
   };
 

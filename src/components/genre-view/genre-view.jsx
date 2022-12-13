@@ -1,47 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import {
-  Card,
-  Navbar,
-  Nav,
-  Container,
-  Row,
-  Col,
-  Button,
-} from "react-bootstrap";
-
+import { Button, Card, Col } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
 import "./genre-view.scss";
 
-export default class GenreView extends React.Component {
-  render() {
-    const { genre, onBackClick, movies, movie } = this.props;
+export function GenreView ({movies}) {
 
-    return (
-      <Container>
-        <Card className="genre-view">
-          <Card.Header className="genre-view-header">Genre</Card.Header>
-          <Card.Body className="genre-view-title">{movie.Genre.Name}</Card.Body>
-          <Card.Body>{movie.Genre.Description}</Card.Body>
-          <Card.Footer>
-            <Button
-              className="genre-view-button"
-              onClick={() => {
-                onBackClick();
-              }}
-            >
-              Back
-            </Button>
-          </Card.Footer>
-        </Card>
-      </Container>
-    );
-  }
-}
+	const selectGenre = () => {
+		const { name } = useParams();
+		return movies.find((m) => m.Genre.Name === name);
+	}
 
-GenreView.proptypes = {
-  Genre: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-  }).isRequired,
-};
+	return (
+		<Col md={8}>
+			<Card className="genre-view">
+				<Card.Title>Genre</Card.Title>
+				<Card.Subtitle>{selectGenre().Genre.Name}</Card.Subtitle>
+				<Card.Text>{selectGenre().Genre.Description}</Card.Text>
+				<Link to={-1}>
+					<Button variant="outline-secondary">Back</Button>
+				</Link>
+			</Card>
+		</Col>
+	);
+	}

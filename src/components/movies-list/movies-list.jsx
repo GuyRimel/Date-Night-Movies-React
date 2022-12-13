@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Form } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { filter } from "../../reducers/visibilityfilter-reducer";
+import { filter } from "../../features/visibilityfilter-reducer";
 import { MovieCard } from '../movie-card/movie-card';
 
 function MoviesList() {

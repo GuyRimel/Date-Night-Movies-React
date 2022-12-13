@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client';
 import Container from 'react-bootstrap/Container';
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux';
-import userReducer from './reducers/user-reducer';
-import moviesReducer from './reducers/movies-reducer';
-import visibilityfilterReducer from './reducers/visibilityfilter-reducer';
+import userReducer from './features/user-reducer';
+import moviesReducer from './features/movies-reducer';
+import visibilityfilterReducer from './features/visibilityfilter-reducer';
 import MainView from './components/main-view/main-view';
 
 // Import statement to indicate that you need to bundle `./index.scss`

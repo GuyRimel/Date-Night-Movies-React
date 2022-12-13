@@ -1,60 +1,49 @@
 import React from "react";
-import { Navbar, Nav, Container, Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./navbar.scss";
 
-export default function NavBar() {
-  let user = localStorage.getItem("user");
-
-  const handleLogOut = (e) => {
-    e.preventDefault();
-    localStorage.clear();
-    window.open("/", "_self");
-    props.onLoggedOut(user);
-  };
+export default function Navbar({ user }) {
+  const onLoggedOut = () => {
+		localStorage.clear();
+		window.open("/", "_self");
+	};
 
   const isAuth = () => {
-    if (typeof window == "undefined") {
-      return false;
-    }
-    if (localStorage.getItem("token")) {
-      return localStorage.getItem("token");
-    } else {
-      return false;
-    }
-  };
+		if (typeof window == "undefined") {
+			return false;
+		}
+		if (localStorage.getItem("token")) {
+				return localStorage.getItem("token");
+		} else {
+			return false;
+		}
+	};
 
   return (
-    <Navbar className="bright-bg w-100 navbar" variant="dark" expand="lg">
-      <Container>
-      <Navbar.Brand href="#">Date Night Movies!</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Link className="nav-link mr-2" to="/">
-            Movies
-          </Link>
-          {isAuth() ? (
-            <>
-              {" "}
-              <Link className="nav-link mr-2" to={`/users/${user}`}>
-                Profile
-              </Link>
-              <p className="nav-link" onClick={handleLogOut}>
-                Log Out
-              </p>
-            </>
-          ) : (
-            <>
-              {" "}
-              <Link className="nav-link" to="/register">
-                Sign Up
-              </Link>
-            </>
-          )}
-        </Nav>
-      </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+		<>
+			<Container>
+				<Navbar className="nav mb-1" variant="dark">
+					<Container>
+						<Navbar.Brand href="/">See You at the Movies!</Navbar.Brand>
+						<Nav className="d-flex align-items-baseline">
+
+							<NavLink className="text p-3" to="/">
+								Home
+							</NavLink>
+							{isAuth() && (<NavLink className="text p-3" to={`/users/${user}`}>
+								Profile
+							</NavLink>)}
+							{!isAuth() && (<NavLink className="text p-3" to="/register">
+								Register
+							</NavLink>)}
+							{isAuth() && (<Button className="p-3 bg-transparent border-0" variant="primary" onClick={onLoggedOut}>
+								Logout
+							</Button>)}
+						</Nav>
+					</Container>
+				</Navbar>
+			</Container>
+		</>
+	);
 }
