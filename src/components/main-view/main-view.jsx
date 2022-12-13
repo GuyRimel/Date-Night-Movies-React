@@ -9,7 +9,7 @@ import DirectorView from "../director-view/director-view";
 import GenreView from "../genre-view/genre-view";
 import NavBar from "../navbar/navbar";
 import ProfileView from "../profile-view/profile-view";
-import MovieList from "../movie-list/movie-list";
+import MovieList from "../movies-list/movies-list";
 import { setMovies } from "../../actions/actions";
 
 import { Row, Col } from "react-bootstrap";

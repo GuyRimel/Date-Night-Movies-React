@@ -1,17 +1,16 @@
-import React from "react";
-import {createRoot} from "react-dom/client";
-// import { createStore } from 'redux';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Container from 'react-bootstrap/Container';
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from 'react-redux';
-import moviesSlice from "./reducers/
-import MainView from "./components/main-view/main-view";
-import { devToolsEnhancer } from 'redux-devtools-extension';
-import { Container, Row } from "react-bootstrap";
-import "./index.scss";
+import userReducer from './reducers/user-reducer';
+import moviesReducer from './reducers/movies-reducer';
+import visibilityfilterReducer from './reducers/visibilityfilter-reducer';
+import MainView from './components/main-view/main-view';
 
+// Import statement to indicate that you need to bundle `./index.scss`
+import './index.scss';
 
-// main React component
-// create Redux store // "createStore" is deprecated...
 const store = configureStore({
 	reducer: {
 		user: userReducer,
@@ -20,22 +19,22 @@ const store = configureStore({
 	}
 	});
 
-class DNMApplication extends React.Component {
+// Main component (will eventually use all the others)
+class MoviesApplication extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <Container>
-          <MainView />
-        </Container>
-      </Provider>
-    );
+			<Provider store={store}>
+				<Container>
+					<MainView />
+				</Container>
+			</Provider>
+		);
   }
 }
 
-// 'container' is the root DOM element
-const container = document.getElementsByClassName("app-container")[0];
-const root = createRoot(container);
+// Finds the root of your app
+const container = document.getElementsByClassName('app-container')[0];
 
-// this tells React to render the app in the root DOM element
-// ReactDOM.render(React.createElement(DNMApplication), container);
-root.render(<DNMApplication />);
+// Tells React to render your app in the root DOM element
+const root = createRoot(container);
+root.render(<MoviesApplication />);
