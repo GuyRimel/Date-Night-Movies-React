@@ -17,8 +17,8 @@ function FavoriteMovies({ movie }) {
 				alert("Movie was deleted from Favorite Movies List");
 				window.open(`/users/${user}`, "_self");
 			})
-			.catch((error) => {
-        console.log(error);
+			.catch((err) => {
+        console.log(err);
       })
 	};
 
@@ -36,7 +36,7 @@ function FavoriteMovies({ movie }) {
 
 						<Button
 							className="position-relative"
-							variant="outline-secondary"
+							variant="outline-danger"
 							onClick={() => removeFav(movie._id)}
 						>
 							Remove Movie from Favorites

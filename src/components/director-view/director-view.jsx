@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Col } from "react-bootstrap";
+import { Button, Card, Row, Col } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import "./director-view.scss";
 
@@ -11,16 +11,18 @@ export function DirectorView({movies}) {
 	}
 
 	return (
-		<Col md={8}>
-			<Card className="director-view">
-				<Card.Title>Director</Card.Title>
-				<Card.Subtitle>{selectDirector().Director.Name}</Card.Subtitle>
-				<Card.Text>{selectDirector().Director.Bio}</Card.Text>
-				<Link to={-1}>
-					<Button variant="outline-secondary">Back</Button>
-				</Link>
-			</Card>
-		</Col>
+		<Row className="justify-content-center">
+			<Col md={8}>
+				<Card className="director-view mt-3 p-2">
+					<Card.Title>Director</Card.Title>
+					<Card.Subtitle>{selectDirector().Director.Name}</Card.Subtitle>
+					<Card.Text>{selectDirector().Director.Bio}</Card.Text>
+					<Link to={-1}>
+						<Button variant="outline-secondary mt-2">Back</Button>
+					</Link>
+				</Card>
+			</Col>
+		</Row>
 	);
 }
 

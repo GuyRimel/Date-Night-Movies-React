@@ -17,11 +17,11 @@ export function MovieView({movies}) {
 		let token = localStorage.getItem("token");
 		let url = `https://datenightmovies.herokuapp.com/users/${localStorage.getItem(
 				"user")}/movies/${movieId}`;
-			axios.post(url, null, {
+			axios.put(url, null, {
 				headers: { Authorization: `Bearer ${token}` },
 			})
 			.then((response) => {
-        alert("Your favorite movies list has been updated");
+        alert("Movie Added to Favorites");
         })
       .catch((error) => {
         console.log(error);

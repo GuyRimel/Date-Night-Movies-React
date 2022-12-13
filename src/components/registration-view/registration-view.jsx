@@ -66,9 +66,9 @@ export function RegistrationView(props) {
 
 	return (
 		<Container>
-			<Row>
-				<Col>
-					<Card className="reg mx-auto">
+			<Row className="justify-content-center">
+			<Col className="col-xs-8 col-sm-7 col-md-6 col-lg-5">
+						<Card className="register">
 						<Card.Body>
 							<Card.Title className="text-center">Registration</Card.Title>
 							<Form>
@@ -117,7 +117,7 @@ export function RegistrationView(props) {
 								</Form.Group>
 
 								<Button
-									variant="outline-secondary"
+									variant="outline-success"
 									type="submit"
 									onClick={handleSubmit}
 								>

@@ -50,10 +50,10 @@ export function LoginView(props) {
 		}
 	};
 	return (
-			<Container className="justify-content-center">
-				<Row>
-					<Col>
-						<Card className="login mx-auto">
+			<Container>
+				<Row className="justify-content-center">
+					<Col className="col-xs-8 col-sm-7 col-md-6 col-lg-5">
+						<Card className="login">
 							<Card.Body>
 								<Card.Title className="text-center">Login</Card.Title>
 								<Form>
@@ -81,7 +81,7 @@ export function LoginView(props) {
 
 									<Button
 										className="btn"
-										variant="outline-secondary"
+										variant="outline-success"
 										type="submit"
 										onClick={handleSubmit}
 									>
