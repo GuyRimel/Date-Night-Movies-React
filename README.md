@@ -10,7 +10,7 @@
   <h3 align="center">Date Night Movies (React)</h3>
 
   <p align="center">
-    Find a movie you'll <em>both</em>up enjoy on date night! Date Night Movies is the client side web application built with React. Create an account, securely login, view movie data, and save movies to your favorites in this colorful light-weight knock-off of the popular IMDB website.
+    Find a movie you'll <em>both</em> enjoy on date night! Date Night Movies is the client side web application built with React. Create an account, securely login, view movie data, and save movies to your favorites in this colorful light-weight knock-off of the popular IMDB website.
   </p>
 </div>
 <br />
